@@ -8,9 +8,9 @@ terraform {
     endpoints = {
       s3 = "https://storage.yandexcloud.net"
     }
-    bucket = "diplom-bucket-kig"
-    region = "ru-central1"
-    key    = "terraform.tfstate"
+    bucket     = "diplom-bucket-kig"
+    region     = "ru-central1"
+    key        = "terraform.tfstate"
     access_key = ""
     secret_key = ""
 

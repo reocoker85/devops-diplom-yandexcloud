@@ -40,6 +40,58 @@ variable "zones" {
   default = ["ru-central1-a", "ru-central1-b", "ru-central1-d"]
 }
 
+variable "rt_name" {
+  type    = string
+  default = "route_subnet"
+}
+
+variable "default_zone" {
+  type        = string
+  default     = "ru-central1-b"
+  description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope"
+}
+
+variable "subnet_public_name" {
+  type        = string
+  default     = "public"
+  description = "Name of public subnet"
+}
+
+variable "public_cidr" {
+  type        = list(string)
+  default     = ["192.168.192.0/24"]
+  description = "https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
+}
+
+
+###nat-instance vars
+variable "nat_instance" {
+  type = map(object({
+    nat_image     = string
+    name          = string
+    platform      = string
+    image_id      = string
+    cores         = number
+    memory        = number
+    core_fraction = number
+    preemptible   = bool
+    nat           = bool
+  }))
+  default = {
+    nat_vm = {
+      nat_image     = "fd80mrhj8fl2oe87o4e1"
+      name          = "nat-instance"
+      platform      = "standard-v2"
+      image_id      = "fd80mrhj8fl2oe87o4e1"
+      cores         = 2
+      memory        = 2
+      core_fraction = 5
+      preemptible   = true
+      nat           = true
+    }
+  }
+}
+
 
 ###instance_groups vars
 variable "instance_groups" {
@@ -72,9 +124,9 @@ variable "instance_groups" {
       core_fraction   = 20
       preemptible     = true
       image_id        = "fd8o9coe41hlf4uc194g"
-      nat             = true
+      nat             = false
       ns_type         = "STANDARD"
-      fix_size        = 3
+      fix_size        = 1
       max_unavailable = 1
       max_creating    = 1
       max_deleting    = 1
@@ -90,9 +142,9 @@ variable "instance_groups" {
       core_fraction   = 20
       preemptible     = true
       image_id        = "fd8o9coe41hlf4uc194g"
-      nat             = true
+      nat             = false
       ns_type         = "STANDARD"
-      fix_size        = 3
+      fix_size        = 2
       max_unavailable = 1
       max_creating    = 1
       max_deleting    = 1

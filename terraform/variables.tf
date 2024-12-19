@@ -156,7 +156,7 @@ variable "instance_groups" {
 ###registry vars
 variable "registry_name" {
   type    = string
-  default = "diplom_registry"
+  default = "diplom-registry"
 }
 
 

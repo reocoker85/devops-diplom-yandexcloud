@@ -31,10 +31,13 @@
 
 1. Сервисный аккаунт, который будет в дальнейшем использоваться Terraform для работы с инфраструктурой с необходимыми и достаточными правами.
 ![1.png](./image/1.png)
+
 2. S3 bucket в созданном ЯО аккаунте:
 ![2.png](./image/2.png)
+
 3. VPC с подсетями в разных зонах доступности.
 ![3.png](./image/3.png)
+
 4. Теперь можем выполнить команды `terraform destroy` и `terraform apply` без дополнительных ручных действий.
 ![4.png](./image/4.png)
 
@@ -43,6 +46,7 @@
 
 1. При помощи Terraform подготовил 3 виртуальных машины Compute Cloud для создания Kubernetes-кластера.
 ![5.png](./image/5.png)
+
 2. Воспользовашись Ansible и Kubespray, задеплоил Kubernetes на подготовленные ранее инстансы.
 ![6.png](./image/6.png)
 ![7.png](./image/7.png)
@@ -51,6 +55,7 @@
 ### Создание тестового приложения
 
 1. Создал [Git репозиторий](https://github.com/reocoker85/nginx-diplom) с тестовым приложением и Dockerfile.
+
 2. Регистри с собранным docker image. В качестве регистри используем DockerHub.
 ![8.png](./image/8.png)
 
@@ -58,6 +63,7 @@
 ### Подготовка cистемы мониторинга и деплой приложения
 
 1. Задеплоил в кластер prometheus, grafana, alertmanager и node_exporter ,воспользовавшись пакетом kube-prometheus.
+ 
 2. Задеплоил тестовое приложение.
 
 [Git репозиторий](https://github.com/reocoker85/k8s-deploy.git)
@@ -66,6 +72,9 @@
 ![10.png](./image/10.png)
 ![11.png](./image/11.png)
 ![12.png](./image/12.png)
+![14.png](./image/14.png)
+![15.png](./image/15.png)
+![16.png](./image/16.png)
 
 ---
 ### Установка и настройка CI/CD
